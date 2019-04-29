@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { submitLogin } from '../actions/authActions';
 import { connect } from 'react-redux';
 import { Col, Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
-//////
+
 class Login extends Component {
 
     constructor(props) {
@@ -29,6 +29,7 @@ class Login extends Component {
 
     login() {
         const {dispatch} = this.props;
+        console.log("Login")
         dispatch(submitLogin(this.state.details));
     }
 
@@ -37,10 +38,10 @@ class Login extends Component {
             <Form horizontal>
                 <FormGroup controlId="username">
                     <Col componentClass={ControlLabel} sm={2}>
-                        Email
+                        Username
                     </Col>
                     <Col sm={10}>
-                        <FormControl onChange={this.updateDetails} value={this.state.details.username} type="email" placeholder="Email" />
+                        <FormControl onChange={this.updateDetails} value={this.state.details.username} type="text" placeholder="username" />
                     </Col>
                 </FormGroup>
 
@@ -55,7 +56,7 @@ class Login extends Component {
 
                 <FormGroup>
                     <Col smOffset={2} sm={10}>
-                        <Button onClick={this.login}>Sign in</Button>
+                        <Button onClick={this.login} >Sign in</Button>
                     </Col>
                 </FormGroup>
             </Form>
